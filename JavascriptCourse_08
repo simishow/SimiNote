@@ -1,4 +1,4 @@
-//Chap_7_56 
+//Chap_8 
 let a = new Map();
 let key_1 = "string key";
 let key_2 = {a: 'key'};
