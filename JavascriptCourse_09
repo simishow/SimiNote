@@ -1,4 +1,4 @@
-
+//Chapter 9
 let call = () =>{
   let secret = 'ES6 rocks!';
   let reveal = () =>{
