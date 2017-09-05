@@ -23,3 +23,71 @@ console.log(countGen.next().value);
 console.log(countGen.next().value);
 console.log(countGen.next().value);
 console.log(countGen.next().value);
+
+
+function* evens(){
+  let count = 0;
+  while (true){
+    count += 2;
+    yield count;
+  }
+}
+let sequence = evens();
+console.log(sequence.next().value);
+console.log(sequence.next().value);
+console.log(sequence.next().value);
+
+
+function* evens(){
+  let count = 0;
+  while (true){
+    count += 2;
+    let reset = yield count;
+    if(reset){
+      count = 0;
+    }
+  }
+}
+let sequence = evens();
+console.log(sequence.next().value);
+console.log(sequence.next().value);
+console.log(sequence.next().value);
+console.log(sequence.next(true).value);
+console.log(sequence.next().value);
+
+
+const arrayIterator = (array) => {
+  let index = 0;
+  return{
+    next: () => {
+      if (index < array.length){
+        let next = array[index];
+        index += 1;
+        return next;
+      }
+    }
+  }
+}
+let  it = arrayIterator([1, 2, 3]);
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+
+//yield
+function* arrayIterator(){
+  yield arguments;
+}
+var it =arrayIterator(1, 2, 3);
+console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
+
+
+//yidle*
+function* arrayIterator(){
+  yield* arguments;
+}
+var it =arrayIterator(1, 2, 3);
+console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
