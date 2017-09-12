@@ -1,0 +1,69 @@
+//Chap 13
+
+//93
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+  <div>React Application!</div>, document.getElementById('root')
+);
+
+
+//94
+
+//Global.js
+import React,{ Component } from 'react';
+
+class Global extends Component {
+  render(){
+    return (
+      <div>The Global App Component</div>
+  }
+}
+
+export default Global;
+
+//index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Global from './components/Global';
+
+ReactDOM.render(
+  <Global />, document.getElementById('root')
+);
+
+
+//95
+
+//Global.js
+import React,{ Component } from 'react';
+import {FormGroup, FormControl, InputGroup, Glyphicon} from 'react-bootstrap';
+class Global extends Component {
+  search(){
+    console.log('search');
+  }
+  render(){
+    return (
+      <div>
+        <h2>Book Explorer!</h2>
+        <FormGroup>
+          <InputGroup>
+            <FormControl
+            type = "text"
+            placeholder = "Search for a book"
+            />
+            <InputGroup.Addon onClink={() => this.search()}>
+              <Glyphicon glyph = "search"></Glyphicon>
+            </InputGroup.Addon>
+          </InputGroup>
+        </FormGroup>
+      </div>
+  }
+}
+
+export default Global;
+
+
+//96
+
